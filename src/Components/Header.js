@@ -30,7 +30,7 @@ function Header() {
     </ul>
     <form class="form-inline my-2 my-lg-0">
     <Link class="btn btn-outline-primary my-2 my-sm-0 " to='/signup'>SignUp</Link>
-    <Link class="btn btn-outline-primary my-2 my-sm-0 ml-1" to='/login'>Login</Link>
+    <Link class="btn btn-outline-primary my-2 my-sm-0 ml-1" to='/signin'>SignIn</Link>
     </form>
   </div>
 </nav>
