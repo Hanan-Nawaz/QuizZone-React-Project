@@ -33,11 +33,11 @@ class Main extends Component {
             <Route path='/about-us'  element={ <About/>  }></Route>
             <Route path='/signup'  element={ <Signup/>  }></Route>
             <Route path='/signin'  element={ <SignIn/>  }></Route>
-            <Route path='*' element={<Navigate to='/home' replace />} />       
-
+            <Route path='*' element={<Navigate to='/home' replace />} /> 
             </Routes>
              
              <Footer/>
+
              </>
         );
     }

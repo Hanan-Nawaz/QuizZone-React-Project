@@ -156,7 +156,7 @@ function Signup() {
 
             <Row className='mt-3 mb-4'>
                     <Col className=' float-right'>
-                        <p className='float-right'><b>Already have an Account? </b> <Link className='' to='/signin' >Login</Link></p>
+                        <p className='float-right'><b>Already have an Account? </b> <Link className='' to='/signin' >SignIn</Link></p>
                     </Col>
                     
                 </Row>

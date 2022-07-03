@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Container, Row, Col, Form } from 'reactstrap'
 import Logo from '../assets/quizzone.png'
 import getUsers from '../Firebase/SignIn'
+import { Link, useNavigate } from 'react-router-dom'
 
 function SignIn() {
+    let navigate = useNavigate();
 
     const [Email, SetEmail] = useState("");
     const [Password, SetPassword] = useState("");
@@ -25,6 +27,7 @@ function SignIn() {
                     console.log(data.Password);
                     if(data.Password === Password){
                         SetMessage({error: false, msg: "Logged In"});
+                        navigate('/dashboard');
                     }
                     else{
                         SetMessage({error: true, msg: "Wrong Password!!!"});
@@ -94,6 +97,13 @@ function SignIn() {
                     </center>
 
                     </Col>
+                </Row>
+
+                <Row className='mt-3 mb-4'>
+                    <Col className=' float-right'>
+                        <p className='float-right'><b>Don't have an Account? </b> <Link className='' to='/signup' >Signup</Link></p>
+                    </Col>
+                    
                 </Row>
 
             </Form>
