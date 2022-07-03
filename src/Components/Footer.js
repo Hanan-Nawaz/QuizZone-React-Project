@@ -18,7 +18,7 @@ function Footer() {
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
+        ><i class="fa fa-facebook"></i
       ></a>
 
       <a
@@ -26,7 +26,7 @@ function Footer() {
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
+        ><i class="fa fa-twitter"></i
       ></a>
 
       <a
@@ -34,7 +34,7 @@ function Footer() {
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
+        ><i class="fa fa-google"></i
       ></a>
 
       <a
@@ -42,7 +42,7 @@ function Footer() {
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
+        ><i class="fa fa-instagram"></i
       ></a>
 
       <a
@@ -50,14 +50,14 @@ function Footer() {
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
+        ><i class="fa fa-linkedin"></i
       ></a>
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
         href="#!"
         role="button"
         data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
+        ><i class="fa fa-github"></i
       ></a>
 
       <div class="row">

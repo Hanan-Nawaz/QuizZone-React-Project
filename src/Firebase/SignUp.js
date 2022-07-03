@@ -1,11 +1,9 @@
-import { collection, addDoc } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import { db } from './Firebase-Services'
 
-const UserRef = collection(db, "Users");
-
 class Users {
-    addUsers(newUser){
-        return addDoc(UserRef, newUser);
+    addUsers(newUser, Email){
+        return setDoc(doc(db, "Users", Email), newUser );
     }
 }
 

@@ -1,15 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col, Form } from 'reactstrap'
 import Logo from '../assets/quizzone.png'
+import getUsers from '../Firebase/SignIn'
 
 function SignIn() {
 
+    const [Email, SetEmail] = useState("");
+    const [Password, SetPassword] = useState("");
+    const [message, SetMessage] = useState({error: false, msg: ""});
+
     const HandleSubmit = async (event) => {
         event.preventDefault();
+        SetMessage("");
+
+        if(Email === "" || Password === ""){
+            SetMessage({error: true, msg: "All Fields are Manadatory!!"});
+            return;
+        }
+        else{
+            try{
+                const docSnap  = await getUsers.getuser(Email);
+                if(docSnap.exists()){
+                    const data = docSnap.data();
+                    console.log(data.Password);
+                    if(data.Password === Password){
+                        SetMessage({error: false, msg: "Logged In"});
+                    }
+                    else{
+                        SetMessage({error: true, msg: "Wrong Password!!!"});
+                    }
+                }
+                else{
+                    SetMessage({error: true, msg: "User Not Found"});
+                }
+            } catch(err){
+                SetMessage({error: true, msg: err.message });
+            }
+        }
+
     }
 
     return (
-        <Container className='' >
+        <Container >
+
+        {message?.msg && (<div class={ message?.error ? "alert alert-dismissible fade show alert-danger" : " alert alert-dismissible fade show alert-success" } role="alert">
+  <strong>{message?.msg}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>) }
+
             <Row>
                 <Col>
                     <center>
@@ -21,21 +61,25 @@ function SignIn() {
                 <Row>
                     <Col sm={6} >
 
-                        <label class="sr-only" for="inlineFormInputGroupUsername2">Email</label>
+                        <label class="sr-only" for="Email">Email</label>
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i className='fa fa-envelope'></i></div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Email" />
+                            <input type="email" class="form-control" id="Email"
+                            value={Email} onChange={ (e) => { SetEmail(e.target.value) } }
+                            placeholder="Email" />
                         </div>
                     </Col>
                     <Col sm={6} >
-                        <label class="sr-only" for="inlineFormInputGroupUsername2">Password</label>
+                        <label class="sr-only" for="Password">Password</label>
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i className='fa fa-key'></i></div>
                             </div>
-                            <input type="password" class="form-control" id="inlineFormInputGroupUsername2" placeholder="password" />
+                            <input type="password" class="form-control" id="Password" placeholder="Password" 
+                            value={Password} onChange={ (e) => { SetPassword(e.target.value) } }
+                            />
                         </div>
                     </Col>
 

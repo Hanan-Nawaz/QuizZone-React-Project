@@ -33,7 +33,7 @@ function Signup() {
                     Occupation,
                 };
     
-                await Users.addUsers(newUser);
+                await Users.addUsers(newUser, Email);
                 SetMessage({error: false, msg: "User Created Successfully!!"});
             } catch(err){
                 SetMessage({error: true, msg: err.message});
