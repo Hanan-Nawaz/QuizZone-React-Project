@@ -1,16 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Form } from 'reactstrap'
 import Logo from '../assets/quizzone.png'
+import Users from '../Firebase/SignUp'
 
 function Signup() {
 
+
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+    const [MobileNumber, setMobileNumber] = useState("");
+    const [Name, setName] = useState("");
+    const [Occupation, setOccupation] = useState("");
+    const [message, SetMessage] = useState({ error: false, msg: "" });
+
     const HandleSubmit = async (event) => {
         event.preventDefault();
+
+            SetMessage("");
+
+        if(Email === "" || Password === "" || Name === "" || MobileNumber === ""  ){
+            SetMessage({error: true, msg: "All Fileds are Manadatory."});
+            return;
+        }
+        else{
+            try {
+                const newUser = {
+                    Email,
+                    Password,
+                    Name,
+                    MobileNumber,
+                    Occupation,
+                };
+    
+                await Users.addUsers(newUser);
+                SetMessage({error: false, msg: "User Created Successfully!!"});
+            } catch(err){
+                SetMessage({error: true, msg: err.message});
+            }
+
+            setEmail("");
+            setPassword("");
+            setMobileNumber("");
+            setName("");
+            setOccupation("");
+        }
+       
+    
     }
 
     return (
-        <Container className='' >
+        <>
+        
+        
+        <Container >
 
+        {message?.msg && (<div class={ message?.error ? "alert alert-dismissible fade show alert-danger" : " alert alert-dismissible fade show alert-success" } role="alert">
+  <strong>{message?.msg}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>)
+        
+    }
 
             <Row>
                 <Col>
@@ -28,7 +80,9 @@ function Signup() {
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i className='fa fa-envelope'></i></div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Email" />
+                            <input type="email" class="form-control" id="inlineFormInputGroupUsername2" value={Email}
+                            onChange = { (e) => setEmail(e.target.value) }
+                            placeholder="Email" />
                         </div>
                     </Col>
                     <Col sm={6} >
@@ -37,7 +91,9 @@ function Signup() {
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i className='fa fa-key'></i></div>
                             </div>
-                            <input type="password" class="form-control" id="inlineFormInputGroupUsername2" placeholder="password" />
+                            <input type="password" class="form-control" id="inlineFormInputGroupUsername2" value={Password}
+                            onChange = { (e) => setPassword(e.target.value) }
+                             placeholder="password" />
                         </div>
                     </Col>
 
@@ -48,9 +104,11 @@ function Signup() {
                         <label class="sr-only" for="inlineFormInputGroupUsername2">Full Name</label>
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
-                                <div class="input-group-text"><i className='fa fa-envelope'></i></div>
+                                <div class="input-group-text"><b> N </b></div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Full Name" />
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value={Name}
+                            onChange = { (e) => setName(e.target.value) } 
+                            placeholder="Full Name" />
                         </div>
                     </Col>
                     <Col sm={6} >
@@ -59,7 +117,9 @@ function Signup() {
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i className='fa fa-address-book'></i></div>
                             </div>
-                            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Mobile Number" />
+                            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" value={MobileNumber}
+                            onChange = { (e) => setMobileNumber(e.target.value) }
+                             placeholder="Mobile Number" />
                         </div>
                     </Col>
 
@@ -68,26 +128,17 @@ function Signup() {
                 <Row className='mt-3'>
 
                     <Col >
-                        <div class="form-check">
-
-
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
-                            <label class="form-check-label" for="gridRadios1">
-                                Student
-                            </label>
-                        </div>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" value={Occupation}
+                            onChange = { (e) => setOccupation(e.target.value) }>
+                        <option value="0">Choose Occupation</option>
+                        <option value="1">Student</option>
+                        <option value="2">Teacher</option>
+                    </select>
                     </Col>
 
 
 
-                    <Col >
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
-                            <label class="form-check-label" for="gridRadios2">
-                                Teacher
-                            </label>
-                        </div>
-                    </Col>
+                   
 
                 </Row>
 
@@ -103,7 +154,15 @@ function Signup() {
 
             </Form>
 
+            <Row className='mt-3 mb-4'>
+                    <Col className=' float-right'>
+                        <p className='float-right'><b>Already have an Account? </b> <Link className='' to='/signin' >Login</Link></p>
+                    </Col>
+                    
+                </Row>
+
         </Container>
+        </>
     )
 }
 
