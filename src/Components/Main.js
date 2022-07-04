@@ -7,7 +7,7 @@ import About from './About-us'
 import Signup from './Sign-up'
 import SignIn from './SignIn'
 import { TOPICS } from '../JSON/Topics'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 class Main extends Component {
 
@@ -33,7 +33,6 @@ class Main extends Component {
             <Route path='/about-us'  element={ <About/>  }></Route>
             <Route path='/signup'  element={ <Signup/>  }></Route>
             <Route path='/signin'  element={ <SignIn/>  }></Route>
-            <Route path='*' element={<Navigate to='/home' replace />} /> 
             </Routes>
              
              <Footer/>

@@ -5,6 +5,7 @@ import SignIn from '../Components/SignIn'
 import FooterDashboard from './FooterDashboard'
 import AddTopics from './Add-Topics'
 import getUsers from '../Firebase/SignIn'
+import DashboardError from '../ErrorPage/DashboardError';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -66,9 +67,9 @@ function MainDashboard() {
                     <div className='bodydashboard'>
 
                         <Routes>
-
                             <Route path="/add-topics" element={<AddTopics />}></Route>
                             <Route path='/signin' element={<SignIn />}></Route>
+                            <Route path='/dashboard-error' element = { <DashboardError /> } />
                         </Routes>
                         <FooterDashboard />
                     </div>

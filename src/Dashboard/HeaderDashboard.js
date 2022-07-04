@@ -20,10 +20,9 @@ function HeaderDashboard( { Email } ) {
         </Link>
 
         <Link
-          to={`/dashboard?Email=${Email}/add-topics`}
+          to={`/add-topics?Email=${Email}`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
-        //   onClick={}
         >
           <i class="fa fa-plus fa-fw me-3" ></i><span className='h6 ml-2'><b>  Add Topics</b></span>
         </Link>
@@ -32,7 +31,7 @@ function HeaderDashboard( { Email } ) {
           to="/signin"
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
-        //   onClick={}
+           onClick={() => { Email = null }}
         >
           <i class="fa fa-sign-out fa-fw me-3" ></i><span className='h6 text-danger ml-2'><b>  Sign Out</b></span>
         </Link>
