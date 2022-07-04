@@ -24,10 +24,10 @@ function SignIn() {
                 const docSnap  = await getUsers.getuser(Email);
                 if(docSnap.exists()){
                     const data = docSnap.data();
-                    console.log(data.Password);
+
                     if(data.Password === Password){
                         SetMessage({error: false, msg: "Logged In"});
-                        navigate('/dashboard');
+                        navigate(`/dashboard?Email=${data.Email}`);
                     }
                     else{
                         SetMessage({error: true, msg: "Wrong Password!!!"});

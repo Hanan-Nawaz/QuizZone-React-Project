@@ -1,26 +1,106 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderDashboard from './HeaderDashboard'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import SignIn from '../Components/SignIn'
 import FooterDashboard from './FooterDashboard'
 import AddTopics from './Add-Topics'
+import getUsers from '../Firebase/SignIn'
+
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 function MainDashboard() {
-  return (
-    <>
-    <HeaderDashboard />
-  
-   <div className='bodydashboard'>
-   <Routes>
+    let navigate = useNavigate();
+    let query = useQuery();
+    var Email = query.get("Email");
+    const [message, SetMessage] = useState({ error: false, msg: "" });
 
-   <Route path="/add-topics"  element={ <AddTopics/>  }></Route>
-   <Route path='/signin'  element={ <SignIn/>  }></Route>
-   </Routes>
-   <FooterDashboard/>
-   </div>
-   
-     </>
-  )
+    useEffect(
+        () => {
+            const HandleSubmit = async () => {
+                try {
+                    const docSnap = await getUsers.getuser(Email);
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        if (Email === data.Email) {
+                            console.log(data);
+                            SetMessage({ error: false, msg: " " });
+                        }
+                        else {
+                            SetMessage({ error: true, msg: "doesn't found" });
+                            console.log(message);
+                            <>
+                            </>
+                        }
+                    }
+                    else {
+                        <>
+                        </>
+                        navigate('/signin');
+
+                        SetMessage({ error: true, msg: "doesn't found" });
+
+
+
+                    }
+                } catch (err) {
+                    SetMessage({ error: true, msg: err.message });
+                }
+
+
+            }
+            HandleSubmit();
+        }, []
+
+
+    )
+
+
+
+
+
+
+    if (Email === null) {
+        SetMessage({ error: true, msg: "User doesn't found" });
+    }
+    else {
+
+
+
+
+
+
+
+
+
+
+        if (message?.error) {
+
+        }
+        else {
+    
+            return (
+
+                <>
+                    <HeaderDashboard />
+
+                    <div className='bodydashboard'>
+
+
+
+                        <Routes>
+
+                            <Route path="/add-topics" element={<AddTopics />}></Route>
+                            <Route path='/signin' element={<SignIn />}></Route>
+                        </Routes>
+                        <FooterDashboard />
+                    </div>
+                </>
+            )
+        }
+    }
 }
 
 export default MainDashboard

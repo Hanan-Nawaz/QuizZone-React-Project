@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/quizzone.png'
 
-function HeaderDashboard() {
+function HeaderDashboard( { MobileNumber } ) {
+
+
   return (
     <div>
         <aside>
@@ -10,7 +12,7 @@ function HeaderDashboard() {
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-2 mt-4">
         <Link
-          to="/dashboard"
+          to={`/dashboard`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
@@ -18,7 +20,7 @@ function HeaderDashboard() {
         </Link>
 
         <Link
-          to="/dashboard/add-topics"
+          to={`/dashboard/add-topics`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         //   onClick={}
