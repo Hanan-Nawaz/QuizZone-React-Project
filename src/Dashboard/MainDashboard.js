@@ -6,7 +6,6 @@ import FooterDashboard from './FooterDashboard'
 import AddTopics from './Add-Topics'
 import getUsers from '../Firebase/SignIn'
 
-
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
@@ -30,20 +29,12 @@ function MainDashboard() {
                         }
                         else {
                             SetMessage({ error: true, msg: "doesn't found" });
-                            console.log(message);
-                            <>
-                            </>
+                            window.location.href = "/dashboard-error";
                         }
                     }
                     else {
-                        <>
-                        </>
-                        navigate('/signin');
-
                         SetMessage({ error: true, msg: "doesn't found" });
-
-
-
+                        window.location.href = "/dashboard-error";
                     }
                 } catch (err) {
                     SetMessage({ error: true, msg: err.message });
@@ -52,7 +43,8 @@ function MainDashboard() {
 
             }
             HandleSubmit();
-        }, []
+
+        }, [Email, message, navigate]
 
 
     )
@@ -64,17 +56,9 @@ function MainDashboard() {
 
     if (Email === null) {
         SetMessage({ error: true, msg: "User doesn't found" });
+        window.location.href = "/dashboard-error";
     }
     else {
-
-
-
-
-
-
-
-
-
 
         if (message?.error) {
 
@@ -87,8 +71,6 @@ function MainDashboard() {
                     <HeaderDashboard />
 
                     <div className='bodydashboard'>
-
-
 
                         <Routes>
 

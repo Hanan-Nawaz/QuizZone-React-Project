@@ -3,8 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Main from '../Components/Main';
 import MainDashboard from '../Dashboard/MainDashboard';
 import AddTopics from '../Dashboard/Add-Topics';
-
-
+import DashboardError from '../ErrorPage/DashboardError';
 
 function MainComponent() {
  
@@ -14,7 +13,8 @@ function MainComponent() {
         <Route path='/dashboard/*'  element={ <MainDashboard />  }>
         <Route path='add-topics' element={<AddTopics />} />             
         </Route>
-       
+       <Route path='/dashboard-error' element = { <DashboardError /> } />
+
       </Routes>   
     );
 }
