@@ -22,7 +22,7 @@ function SignIn() {
         else{
             try{
                 const docSnap  = await getUsers.getuser(Email);
-                if(docSnap.exists()){
+                if(docSnap.exists){
                     const data = docSnap.data();
 
                     if(data.Password === Password){

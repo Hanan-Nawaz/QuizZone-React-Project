@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HeaderDashboard from './HeaderDashboard'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import SignIn from '../Components/SignIn'
 import FooterDashboard from './FooterDashboard'
 import AddTopics from './Add-Topics'
@@ -11,7 +11,6 @@ function useQuery() {
 }
 
 function MainDashboard() {
-    let navigate = useNavigate();
     let query = useQuery();
     var Email = query.get("Email");
     const [message, SetMessage] = useState({ error: false, msg: "" });
@@ -24,7 +23,6 @@ function MainDashboard() {
                     if (docSnap.exists()) {
                         const data = docSnap.data();
                         if (Email === data.Email) {
-                            console.log(data);
                             SetMessage({ error: false, msg: " " });
                         }
                         else {
@@ -44,15 +42,10 @@ function MainDashboard() {
             }
             HandleSubmit();
 
-        }, [Email, message, navigate]
+        }, [Email]
 
 
     )
-
-
-
-
-
 
     if (Email === null) {
         SetMessage({ error: true, msg: "User doesn't found" });
@@ -64,11 +57,11 @@ function MainDashboard() {
 
         }
         else {
-    
+
             return (
 
                 <>
-                    <HeaderDashboard />
+                    <HeaderDashboard Email={Email} />
 
                     <div className='bodydashboard'>
 
