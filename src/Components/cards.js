@@ -1,36 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardImg } from "reactstrap";
+import Topics from '../Firebase/Topics'
 
+function Cards() {
 
-function RenderCards({ topics }) {
-    return (
-        <Card>
-            <Link to={`/quiz/${topics.id}`} >
-                <CardImg width="300px" src={topics.image} height='300px' alt={topics.name} />
-            </Link>
-        </Card>
-    )
-}
+    const [data, SetData] = useState([]);
 
-const cards = (props) => {
+    useEffect(() => {
+            HandleSubmit();
 
-    const card = props.topics.map((topics) => {
-        return (
-            <div key={topics.id} className="col-12 col-md-3 p-1">
+        }, []);
 
-                <RenderCards topics={topics} />
-            </div>
-        )
-    });
+        const HandleSubmit = async () => {
+                const docSnap = await Topics.getTopics();
+                console.log(docSnap.docs);
+                SetData(docSnap.docs.map((doc) => (
+                    {
+                        ...doc.data(), id: doc.id
+                    }
+                )))
+        }
 
     return (
         <>
-
-
-
             <div className="container">
-               
+
                 <div className="row">
 
                     <div className="col-12">
@@ -39,7 +34,20 @@ const cards = (props) => {
                 </div>
 
                 <div className="row mb-5">
-                    {card}
+                        { data.map((doc) => {
+                            return(
+                                <div key={doc.id} className="col-12 col-md-3 p-1">
+
+                        <Card>
+                            <Link to={`/quiz/${doc.id}`} >
+                                <CardImg width="300px" src={doc.Image} height='300px' alt={doc.Name} />
+                            </Link>
+                        </Card>
+                        </div>
+
+                            )
+                        } ) }
+                        
                 </div>
             </div>
 
@@ -47,4 +55,4 @@ const cards = (props) => {
     )
 }
 
-export default cards
+export default Cards

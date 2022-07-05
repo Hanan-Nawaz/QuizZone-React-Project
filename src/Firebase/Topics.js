@@ -1,14 +1,15 @@
 import { db } from './Firebase-Services'
-import { doc, getDocs, setDoc } from 'firebase/firestore'
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore'
 
+const dbref = collection(db, "Topics");
 
 class Topics {
-    addtopic(Name,newTopic){
+    addtopic = (Name,newTopic) => {
         return setDoc(doc(db, "Topics",Name), newTopic);
     }
 
-    getTopics(){
-        return getDocs();
+    getTopics = () => {
+        return getDocs(dbref);
     }
 };
 
