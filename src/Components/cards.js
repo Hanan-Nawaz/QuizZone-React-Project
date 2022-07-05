@@ -59,7 +59,7 @@ function Cards() {
                             <div key={doc.id} className="col-12 col-md-3 p-1">
 
                                 <Card className='border border-primary'>
-                                    <Link to={`/quiz/${doc.id}`} >
+                                    <Link to={`/main/quiz-topics/${doc.id}`} >
                                         <CardImg width="300px" src={doc.Image} height='300px' alt={doc.Name} />
                                     </Link>
                                 </Card>

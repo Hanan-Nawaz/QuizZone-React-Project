@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Main from '../Components/Main';
 import MainDashboard from '../Dashboard/MainDashboard';
 import Home from '../Components/Home'
@@ -21,6 +21,7 @@ function MainComponent() {
             <Route path='signup'  element={ <Signup/>  }></Route>
             <Route path='signin'  element={ <SignIn/>  }></Route>
             <Route path='quiz-topics'  element={ <Cards />}></Route>
+            <Route path='quiz-topics/*' element={<Navigate to='/main/signin' replace />}></Route>
             <Route path='*'  element={ <Error404 />}></Route>
         </Route>
         <Route path='*'  element={ <MainDashboard />  }></Route>

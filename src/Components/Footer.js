@@ -61,7 +61,7 @@ function Footer() {
       ></a>
 
       <div class="row">
-      <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics' >
+      <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics' >
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"
@@ -75,7 +75,7 @@ function Footer() {
             </a>
           </div>
         </Link>
-        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics' >
+        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics' >
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"
@@ -89,7 +89,7 @@ function Footer() {
             </a>
           </div>
         </Link>
-        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics' >
+        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics' >
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"
@@ -103,7 +103,7 @@ function Footer() {
             </a>
           </div>
         </Link>
-        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics' >
+        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics' >
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"
@@ -113,7 +113,7 @@ function Footer() {
             
           </div>
         </Link>
-        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics'>
+        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics'>
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"
@@ -127,7 +127,7 @@ function Footer() {
             </a>
           </div>
         </Link>
-        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/quiz-topics' >
+        <Link class="col-lg-2 col-md-12 mb-4 mb-md-0" to='/main/quiz-topics' >
           <div
             class="bg-image hover-overlay ripple shadow-1-strong rounded"
             data-ripple-color="light"

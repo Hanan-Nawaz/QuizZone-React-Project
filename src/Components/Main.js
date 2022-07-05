@@ -7,13 +7,14 @@ import About from './About-us'
 import Signup from './Sign-up'
 import SignIn from './SignIn'
 import Error404 from '../ErrorPage/Error404'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 function Main() {
   return (
     <>
       <Header />
       <Routes>
+        <Route path='/quiz-topics/*' element={<Navigate to='/main/signin' replace />}></Route>
         <Route path='/quiz-topics' element={<Cards />}></Route>
         <Route path='/home' element={<Home />}></Route>
         <Route path='/' element={<Home />}></Route>

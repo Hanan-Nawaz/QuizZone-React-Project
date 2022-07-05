@@ -19,10 +19,8 @@ function Signup() {
         event.preventDefault();
 
             SetMessage("");
-            let value1 = Math.random();
-            setID(value1);
 
-        if(Email === "" || Password === "" || Name === "" || MobileNumber === ""  ){
+        if(Email === "" || Password === "" || Name === "" || MobileNumber === "" || ID === ""  ){
             SetMessage({error: true, msg: "All Fileds are Manadatory."});
             return;
         }
@@ -109,7 +107,7 @@ function Signup() {
                         <label class="sr-only" for="inlineFormInputGroupUsername2">Full Name</label>
                         <div class="input-group mb-2 mr-sm-2">
                             <div class="input-group-prepend">
-                                <div class="input-group-text"><b> N </b></div>
+                                <div class="input-group-text"> <i className='fa fa-user'>  </i></div>
                             </div>
                             <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value={Name}
                             onChange = { (e) => setName(e.target.value) } 
@@ -131,7 +129,17 @@ function Signup() {
                 </Row>
 
                 <Row className='mt-3'>
-
+                <Col sm={6} >
+                        <label class="sr-only" for="inlineFormInputGroupUsername2">ID</label>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i className='fa fa-user'></i></div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value={ID}
+                            onChange = { (e) => setID(e.target.value) }
+                             placeholder="Please Enter Combination of 10 Numbers and Alphabets" />
+                        </div>
+                    </Col>
                     <Col >
                     <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" value={Occupation}
                             onChange = { (e) => setOccupation(e.target.value) }>
@@ -161,7 +169,7 @@ function Signup() {
 
             <Row className='mt-3 mb-4'>
                     <Col className=' float-right'>
-                        <p className='float-right'><b>Already have an Account? </b> <Link className='' to='/signin' >SignIn</Link></p>
+                        <p className='float-right'><b>Already have an Account? </b> <Link className='' to='/main/signin' >SignIn</Link></p>
                     </Col>
                     
                 </Row>
