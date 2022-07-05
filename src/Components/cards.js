@@ -8,19 +8,18 @@ function Cards() {
     const [data, SetData] = useState([]);
 
     useEffect(() => {
-            HandleSubmit();
+        HandleSubmit();
+    }, []);
 
-        }, []);
-
-        const HandleSubmit = async () => {
-                const docSnap = await Topics.getTopics();
-                console.log(docSnap.docs);
-                SetData(docSnap.docs.map((doc) => (
-                    {
-                        ...doc.data(), id: doc.id
-                    }
-                )))
-        }
+    const HandleSubmit = async () => {
+        const docSnap = await Topics.getTopics();
+        console.log(docSnap.docs);
+        SetData(docSnap.docs.map((doc) => (
+            {
+                ...doc.data(), id: doc.id
+            }
+        )))
+    }
 
     return (
         <>
@@ -34,20 +33,20 @@ function Cards() {
                 </div>
 
                 <div className="row mb-5">
-                        { data.map((doc) => {
-                            return(
-                                <div key={doc.id} className="col-12 col-md-3 p-1">
+                    {data.map((doc) => {
+                        return (
+                            <div key={doc.id} className="col-12 col-md-3 p-1">
 
-                        <Card>
-                            <Link to={`/quiz/${doc.id}`} >
-                                <CardImg width="300px" src={doc.Image} height='300px' alt={doc.Name} />
-                            </Link>
-                        </Card>
-                        </div>
+                                <Card className='border border-primary'>
+                                    <Link to={`/quiz/${doc.id}`} >
+                                        <CardImg width="300px" src={doc.Image} height='300px' alt={doc.Name} />
+                                    </Link>
+                                </Card>
+                            </div>
 
-                            )
-                        } ) }
-                        
+                        )
+                    })}
+
                 </div>
             </div>
 
