@@ -6,8 +6,10 @@ import Topics from '../Firebase/Topics'
 function Cards() {
 
     const [data, SetData] = useState([]);
+    const [loading, SetLoading] = useState({ status: false });
 
     useEffect(() => {
+        SetLoading({ status: true });
         HandleSubmit();
     }, []);
 
@@ -19,6 +21,9 @@ function Cards() {
                 ...doc.data(), id: doc.id
             }
         )))
+
+        SetLoading({ status: false });
+
     }
 
     return (
@@ -32,9 +37,25 @@ function Cards() {
                     </div>
                 </div>
 
+                <div className='row'>
+                    <div className='col'>
+                        <center>
+                            {loading?.status ? <button class="btn btn-primary w-50 h1" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                            </button>
+                                : <></>
+                            }
+                        </center>
+                    </div>
+                </div>
+
                 <div className="row mb-5">
+
                     {data.map((doc) => {
+
                         return (
+
                             <div key={doc.id} className="col-12 col-md-3 p-1">
 
                                 <Card className='border border-primary'>
