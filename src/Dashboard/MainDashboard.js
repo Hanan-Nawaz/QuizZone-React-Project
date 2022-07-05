@@ -11,8 +11,10 @@ function useQuery() {
 }
 
 function MainDashboard() {
+
     let query = useQuery();
     var Email = query.get("Email");
+    var ID = query.get("ID");
     const [message, SetMessage] = useState({ error: false, msg: "" });
 
     useEffect(
@@ -23,7 +25,13 @@ function MainDashboard() {
                     if (docSnap.exists()) {
                         const data = docSnap.data();
                         if (Email === data.Email) {
-                            SetMessage({ error: false, msg: " " });
+                            if( ID === data.ID){
+                                SetMessage({ error: false, msg: " " });
+                            }
+                            else{
+                                SetMessage({ error: true, msg: "doesn't found" });
+                                window.location.href = "/dashboard-error";  
+                            }
                         }
                         else {
                             SetMessage({ error: true, msg: "doesn't found" });
@@ -42,12 +50,12 @@ function MainDashboard() {
             }
             HandleSubmit();
 
-        }, [Email]
+        }, [Email , ID]
 
 
     )
 
-    if (Email === null) {
+    if (Email === null && ID === null) {
         SetMessage({ error: true, msg: "User doesn't found" });
         window.location.href = "/dashboard-error";
     }
@@ -61,7 +69,7 @@ function MainDashboard() {
             return (
 
                 <>
-                    <HeaderDashboard Email={Email} />
+                    <HeaderDashboard Email={Email} ID={ID} />
 
                     <div className='bodydashboard'>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/quizzone.png'
 
-function HeaderDashboard( { Email } ) {
+function HeaderDashboard( { Email, ID } ) {
 
 
   return (
@@ -12,7 +12,7 @@ function HeaderDashboard( { Email } ) {
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-2 mt-4">
         <Link
-          to={`/dashboard?Email=${Email}`}
+          to={`/dashboard?Email=${Email}&ID=${ID}`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
@@ -20,7 +20,7 @@ function HeaderDashboard( { Email } ) {
         </Link>
 
         <Link
-          to={`/add-topics?Email=${Email}`}
+          to={`/add-topics?Email=${Email}&ID=${ID}`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
@@ -28,10 +28,12 @@ function HeaderDashboard( { Email } ) {
         </Link>
 
         <Link
-          to="/signin"
+          to="/main/signin"
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
-           onClick={() => { Email = null }}
+           onClick={() => { Email = null 
+          ID = null
+          }}
         >
           <i class="fa fa-sign-out fa-fw me-3" ></i><span className='h6 text-danger ml-2'><b>  Sign Out</b></span>
         </Link>

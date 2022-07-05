@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 function SignIn() {
     let navigate = useNavigate();
-
     const [Email, SetEmail] = useState("");
     const [Password, SetPassword] = useState("");
     const [message, SetMessage] = useState({error: false, msg: ""});
@@ -27,7 +26,7 @@ function SignIn() {
 
                     if(data.Password === Password){
                         SetMessage({error: false, msg: "Logged In"});
-                        navigate(`/dashboard?Email=${data.Email}`);
+                        navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}`);
                     }
                     else{
                         SetMessage({error: true, msg: "Wrong Password!!!"});

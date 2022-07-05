@@ -12,12 +12,15 @@ function Signup() {
     const [MobileNumber, setMobileNumber] = useState("");
     const [Name, setName] = useState("");
     const [Occupation, setOccupation] = useState("");
+    const [ID, setID] = useState("");
     const [message, SetMessage] = useState({ error: false, msg: "" });
 
     const HandleSubmit = async (event) => {
         event.preventDefault();
 
             SetMessage("");
+            let value1 = Math.random();
+            setID(value1);
 
         if(Email === "" || Password === "" || Name === "" || MobileNumber === ""  ){
             SetMessage({error: true, msg: "All Fileds are Manadatory."});
@@ -31,8 +34,9 @@ function Signup() {
                     Name,
                     MobileNumber,
                     Occupation,
+                    ID,
                 };
-    
+                
                 await Users.addUsers(newUser, Email);
                 SetMessage({error: false, msg: "User Created Successfully!!"});
             } catch(err){
@@ -44,6 +48,7 @@ function Signup() {
             setMobileNumber("");
             setName("");
             setOccupation("");
+            setID("");
         }
        
     
