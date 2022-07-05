@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container } from 'reactstrap'
 import Logo from '../assets/quizzone.png'
 
-function DashboardError() {
+function Error404() {
   return (
     <Container>
      
@@ -12,12 +12,12 @@ function DashboardError() {
            <br/>
           <h1 className='text-primary mt-0 text-center'> QuizZone </h1>
           <br/>
-          <h1 className='error text-center'> Error! </h1>
+          <h1 className='error text-center'> 404 Error! </h1>
           <br/>
-          <b className='text-dark h4'>  Please SignIn First <br/><Link className='link text-danger' to='/main/signin'>  SignIn</Link></b>
+          <b className='text-dark h4'><Link className='link text-danger' to='/main/home'>  Home </Link></b>
         </div>
     </Container>
   )
 }
 
-export default DashboardError
+export default Error404

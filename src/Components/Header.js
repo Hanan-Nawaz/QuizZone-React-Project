@@ -16,21 +16,21 @@ function Header() {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-        <Link className="nav-link" to="/home">Home</Link>
+        <Link className="nav-link" to="/main/home">Home</Link>
       </li>
       <li class="nav-item">
-        <Link class="nav-link" to="/about-us">About Us</Link>
+        <Link class="nav-link" to="/main/about-us">About Us</Link>
       </li>
       <li class="nav-item">
-        <Link class="nav-link" to="/quiz-topics">Quiz Topics</Link>
+        <Link class="nav-link" to="/main/quiz-topics">Quiz Topics</Link>
       </li>
       <li className="nav-item">
         <a className="nav-link" target='__blank' href="https://hanannawaz.com/">About Developer</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-    <Link class="btn btn-outline-primary my-2 my-sm-0 " to='/signup'>SignUp</Link>
-    <Link class="btn btn-outline-primary my-2 my-sm-0 ml-1" to='/signin'>SignIn</Link>
+    <Link class="btn btn-outline-primary my-2 my-sm-0 " to='/main/signup'>SignUp</Link>
+    <Link class="btn btn-outline-primary my-2 my-sm-0 ml-1" to='/main/signin'>SignIn</Link>
     </form>
   </div>
 </nav>
