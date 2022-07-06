@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import SignIn from '../Components/SignIn'
 import FooterDashboard from './FooterDashboard'
 import AddTopics from './Add-Topics'
+import Userlist from './Userlist'
 import getUsers from '../Firebase/SignIn'
 
 function useQuery() {
@@ -76,6 +77,7 @@ function MainDashboard() {
 
                         <Routes>
                             <Route path="/add-topics" element={<AddTopics />}></Route>
+                            <Route path='/user-list' element={<Userlist/>  } ></Route>
                             <Route path='/signin' element={<SignIn />}></Route>
                         </Routes>
                         <FooterDashboard />
