@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/quizzone.png'
 
-function HeaderDashboard( { Email, ID } ) {
+function HeaderDashboard( { Email, ID, LVL } ) {
 
+  const [state, SetState] = useState({ status: false });
+
+  useEffect( () => {
+    const getstate = () => {
+      if(LVL === '1'){
+        SetState({ status : true});
+      }
+      else{
+        SetState({ status : false});
+      }  
+    };
+    getstate();
+  });
+
+ 
 
   return (
     <div>
@@ -19,6 +34,9 @@ function HeaderDashboard( { Email, ID } ) {
           <i class="fa fa-tachometer fa-fw me-3" ></i><span className='h6 ml-2'><b>  Main dashboard</b></span>
         </Link>
 
+        
+
+        { state?.status ? 
         <Link
           to={`/add-topics?Email=${Email}&ID=${ID}`}
           class="list-group-item list-group-item-action py-2 ripple"
@@ -26,6 +44,10 @@ function HeaderDashboard( { Email, ID } ) {
         >
           <i class="fa fa-plus fa-fw me-3" ></i><span className='h6 ml-2'><b>  Add Topics</b></span>
         </Link>
+        :
+        <></>
+
+        }
 
         <Link
           to="/main/signin"

@@ -15,6 +15,7 @@ function MainDashboard() {
     let query = useQuery();
     var Email = query.get("Email");
     var ID = query.get("ID");
+    var LVL = query.get("lvl");
     const [message, SetMessage] = useState({ error: false, msg: "" });
 
     useEffect(
@@ -69,7 +70,7 @@ function MainDashboard() {
             return (
 
                 <>
-                    <HeaderDashboard Email={Email} ID={ID} />
+                    <HeaderDashboard Email={Email} ID={ID} LVL={LVL} />
 
                     <div className='bodydashboard'>
 

@@ -29,7 +29,12 @@ function SignIn() {
 
                     if (data.Password === Password) {
                         SetMessage({ error: false, msg: "Logged In" });
-                        navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}`);
+                        if(data.Email === "hanannawaz0@gmail.com"){
+                            navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}&lvl=${1}`);
+                        }
+                        else{
+                            navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}`);
+                        }
                     }
                     else {
                         setLoading({ status: false });
