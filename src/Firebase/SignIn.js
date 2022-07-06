@@ -1,4 +1,4 @@
-import { collection, getDoc, doc, getDocs } from 'firebase/firestore';
+import { collection, getDoc, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { db } from './Firebase-Services'
 
 const collectionref = collection(db, "Users");
@@ -9,6 +9,9 @@ class getUsers {
     }
     getusers(){
         return getDocs(collectionref);
+    }
+    delusers(id){
+        return deleteDoc(doc(db, "Users", id));
     }
 }
 

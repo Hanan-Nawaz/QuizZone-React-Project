@@ -48,8 +48,9 @@ return (
         <td className='text-center' >{doc.Name}</td>
         <td className='text-center' >{doc.Email}</td>
         <td className='text-center' >{doc.MobileNumber}</td>
-        <td> <Link to='/edit-user' className='h5' ><i className='fa fa-edit'></i> </Link> 
-        <Link to='/delete-user' className='h5 text-danger' ><i className='fa fa-trash-o'></i> </Link>
+        <td>
+        <button type='button' className='border-0 bg-transparent'><Link to={`/edit-user?Email=${doc.Email}&ID=${doc.ID}&lvl=${1}`} className='h5 text-primary' ><i className='fa fa-edit'></i> </Link></button> 
+        <button type="button" class="border-0 bg-transparent"><Link to={`/delete-user?Email=${doc.Email}&ID=${doc.ID}&lvl=${1}`} className='h5 text-danger' ><i className='fa fa-trash-o'></i> </Link></button>
         </td>
     </tr>
 
