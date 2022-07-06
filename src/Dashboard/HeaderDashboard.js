@@ -5,14 +5,17 @@ import Logo from '../assets/quizzone.png'
 function HeaderDashboard( { Email, ID, LVL } ) {
 
   const [state, SetState] = useState({ status: false });
+  const [Url, SetURl] = useState("");
 
   useEffect( () => {
     const getstate = () => {
       if(LVL === '1'){
         SetState({ status : true});
+        SetURl(`?Email=${Email}&ID=${ID}&lvl=${LVL}`);
       }
       else{
         SetState({ status : false});
+        SetURl(`?Email=${Email}&ID=${ID}`);
       }  
     };
     getstate();
@@ -27,7 +30,7 @@ function HeaderDashboard( { Email, ID, LVL } ) {
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-2 mt-4">
         <Link
-          to={`/dashboard?Email=${Email}&ID=${ID}`}
+          to={`/dashboard${Url}`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
@@ -38,7 +41,7 @@ function HeaderDashboard( { Email, ID, LVL } ) {
 
         { state?.status ? 
         <Link
-          to={`/add-topics?Email=${Email}&ID=${ID}`}
+          to={`/add-topics${Url}`}
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
