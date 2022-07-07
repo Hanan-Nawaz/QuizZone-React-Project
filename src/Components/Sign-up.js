@@ -33,6 +33,7 @@ function Signup() {
                     MobileNumber,
                     Occupation,
                     ID,
+                    Status: 'Active',
                 };
                 
                 await Users.addUsers(newUser, Email);
