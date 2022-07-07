@@ -17,6 +17,7 @@ function Edituser() {
     const [status, setStatus] = useState("");
     const [ID, setId] = useState("");
     const [Password, setPassword] = useState("");
+    const [Role, setRole] = useState("");
 
     let navigate = useNavigate();
     const [stat, setStat] = useState({ status: false });
@@ -35,6 +36,7 @@ function Edituser() {
                 setOccupation(data.Occupation);
                 setId(data.ID);
                 setPassword(data.Password);
+                setRole(data.Role);
             }
         };
 
@@ -64,6 +66,7 @@ function Edituser() {
                     status,
                     ID,
                     Password,
+                    Role,
                 };
 
                 await Users.addUsers(newUser, Email);

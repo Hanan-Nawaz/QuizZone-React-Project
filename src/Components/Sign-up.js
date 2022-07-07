@@ -34,6 +34,7 @@ function Signup() {
                     Occupation,
                     ID,
                     Status: 'Active',
+                    Role : 'User',
                 };
                 
                 await Users.addUsers(newUser, Email);

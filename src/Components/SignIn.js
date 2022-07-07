@@ -29,11 +29,17 @@ function SignIn() {
 
                     if (data.Password === Password) {
                         SetMessage({ error: false, msg: "Logged In" });
-                        if(data.Email === "hanannawaz0@gmail.com"){
+                        if(data.Role === "Admin"){
                             navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}&lvl=${1}`);
                         }
                         else{
-                            navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}`);
+                            if(data.Status === "Active"){
+                                navigate(`/dashboard?Email=${data.Email}&ID=${data.ID}`);
+                            }
+                            else{
+                                setLoading({ status: false });
+                                SetMessage({ error: true, msg: "Status is Inactive!! Contact Admin." });
+                            }  
                         }
                     }
                     else {
