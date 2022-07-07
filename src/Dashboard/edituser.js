@@ -15,6 +15,8 @@ function Edituser() {
     const [Name, setName] = useState("");
     const [Occupation, setOccupation] = useState("");
     const [status, setStatus] = useState("");
+    const [ID, setId] = useState("");
+    const [Password, setPassword] = useState("");
 
     let navigate = useNavigate();
     const [stat, setStat] = useState({ status: false });
@@ -31,6 +33,8 @@ function Edituser() {
                 setMobileNumber(data.MobileNumber);
                 setName(data.Name);
                 setOccupation(data.Occupation);
+                setId(data.ID);
+                setPassword(data.Password);
             }
         };
 
@@ -57,10 +61,12 @@ function Edituser() {
                     Name,
                     MobileNumber,
                     Occupation,
-                    Status: 'Active',
+                    status,
+                    ID,
+                    Password,
                 };
 
-                await Users.addUsers(Email, newUser);
+                await Users.addUsers(newUser, Email);
                 SetMessage({ error: false, msg: "Updated Successfully!!!" });
                 navigate(`/user-list?Email=hanannawaz0@gmail.com&ID=12345678&lvl=1`);
             }
