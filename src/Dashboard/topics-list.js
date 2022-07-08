@@ -10,10 +10,13 @@ function useQuery() {
 function Topicslist() {
 
     const [data, setData] = useState([]);
+    const [lvl, setLvl] = useState({ status : false});
     let query = useQuery();
 
     const Email = query.get("Email");
     const ID = query.get("ID");
+    const LVL = query.get("lvl");
+   
 
     useEffect(() => {
         const getData = async () => {
@@ -23,6 +26,10 @@ function Topicslist() {
                 {
                     ...doc.data(), id: doc.id
                 })))
+                
+                if(LVL === '1'){
+                    setLvl({ status: true});
+                }
             
         };
 
@@ -42,7 +49,12 @@ function Topicslist() {
                             </Link>
                                 <CardFooter>
                                     <CardTitle className='h5 text-center text-primary' >{doc.Name}</CardTitle>
-                                    <CardTitle className='h5 text-success text-center' ><Link className='nav-link text-success ' to='/add-mcqs'> + Add Mcqs</Link></CardTitle>
+                                    { lvl?.status ?  
+                                <CardTitle className='h5 text-success text-center' ><Link className='nav-link text-success ' to={`/add-mcqs?Email=${Email}&ID=${ID}&lvl=${1}&Topic=${doc.id}`}> + Add Mcqs</Link></CardTitle>
+                                :
+                                <></>    
+                                }
+                                    
                                 </CardFooter>
                         </Card>
                     </Col>
