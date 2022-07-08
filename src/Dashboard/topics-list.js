@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { Card, Container, Row, Col, CardImg, CardBody, CardTitle } from 'reactstrap'
+import { Card, Container, Row, Col, CardImg, CardTitle, CardFooter } from 'reactstrap'
 import Topics from '../Firebase/Topics'
 
 function useQuery() {
@@ -38,11 +38,11 @@ function Topicslist() {
                     <Col>
                         <Card key={doc.id}>
                             <Link to={`/quiz?Email=${Email}&ID=${ID}&Topic=${doc.id}`}>
-                                <CardImg src={doc.Image} height='170px' width='120px' ></CardImg>
+                                <CardImg src={doc.Image} className='img' height='170px' width='120px' ></CardImg>
                             </Link>
-                                <CardBody>
+                                <CardFooter>
                                     <CardTitle className='h5 text-center text-primary' >{doc.Name}</CardTitle>
-                                </CardBody>
+                                </CardFooter>
                         </Card>
                     </Col>
                 )
