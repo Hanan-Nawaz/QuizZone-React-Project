@@ -42,6 +42,7 @@ function Topicslist() {
                             </Link>
                                 <CardFooter>
                                     <CardTitle className='h5 text-center text-primary' >{doc.Name}</CardTitle>
+                                    <CardTitle className='h5 text-success text-center' ><Link className='nav-link text-success ' to='/add-mcqs'> + Add Mcqs</Link></CardTitle>
                                 </CardFooter>
                         </Card>
                     </Col>

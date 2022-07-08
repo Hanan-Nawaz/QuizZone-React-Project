@@ -82,6 +82,7 @@ function MainDashboard() {
                             <Route path="/add-topics" element={<AddTopics />}></Route>
                             <Route path='/user-list' element={<Userlist/>  } ></Route>
                             <Route path='/topics-list' element={<Topicslist/>  } ></Route>
+                            <Route path='/add-mcqs' element={<Topicslist/>  } ></Route>
                             <Route path='/edit-user' element={ <Edituser />} ></Route>
                             <Route path='/delete-user' element={<Deleteuser />}  ></Route>
                             <Route path='/signin' element={<SignIn />}></Route>
