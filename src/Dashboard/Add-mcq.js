@@ -19,7 +19,7 @@ function Addmcq() {
     const [Option4, setOption4] = useState("");
     const [message, setMessage] = useState({ state: false, msg: "" });
 
-    const Topic = query.get("Topics");
+    const Topic = query.get("Topic");
 
     const AddMCQS = async (e) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ function Addmcq() {
     return (
         <Container>
 
-            {message?.msg && (<div class={message?.error ? "alert alert-dismissible fade show alert-danger" : " alert alert-dismissible fade show alert-success"} role="alert">
+            {message?.msg && (<div class={message?.state ? "alert alert-dismissible fade show alert-danger" : " alert alert-dismissible fade show alert-success"} role="alert">
                 <strong>{message?.msg}</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -100,7 +100,7 @@ function Addmcq() {
                 <Row className='mb-5'>
                     <Col>
                         <center>
-                            <button type='button' className='btn btn-primary w-50'> Save </button>
+                            <button className='btn btn-primary w-50'> Save </button>
                         </center>
                     </Col>
                 </Row>

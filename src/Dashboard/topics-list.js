@@ -34,7 +34,7 @@ function Topicslist() {
         };
 
         getData();
-    })
+    }, [LVL])
 
   return (
     <Container>
