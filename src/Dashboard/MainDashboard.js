@@ -7,6 +7,7 @@ import AddTopics from './Add-Topics'
 import Userlist from './Userlist'
 import Topicslist from './topics-list'
 import Addmcq from './Add-mcq'
+import TakeTest from './TakeTest'
 import getUsers from '../Firebase/SignIn'
 import Edituser from './edituser'
 import Deleteuser from './deleteuser'
@@ -84,6 +85,7 @@ function MainDashboard() {
                             <Route path='/user-list' element={<Userlist/>  } ></Route>
                             <Route path='/topics-list' element={<Topicslist/>  } ></Route>
                             <Route path='/add-mcqs' element={<Addmcq/>  } ></Route>
+                            <Route path='/take-test' element={<TakeTest/>  } ></Route>
                             <Route path='/edit-user' element={ <Edituser />} ></Route>
                             <Route path='/delete-user' element={<Deleteuser />}  ></Route>
                             <Route path='/signin' element={<SignIn />}></Route>

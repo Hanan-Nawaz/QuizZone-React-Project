@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { Card, Container, Row, Col, CardImg, CardTitle, CardFooter } from 'reactstrap'
+import { Card, Container, Row, Col, CardImg, CardTitle, CardBody, CardText, CardHeader } from 'reactstrap'
 import Topics from '../Firebase/Topics'
 
 function useQuery() {
@@ -47,15 +47,19 @@ function Topicslist() {
                             <Link to={`/quiz?Email=${Email}&ID=${ID}&Topic=${doc.id}`}>
                                 <CardImg src={doc.Image} className='img' height='170px' width='120px' ></CardImg>
                             </Link>
-                                <CardFooter>
-                                    <CardTitle className='h5 text-center text-primary' >{doc.Name}</CardTitle>
+                            <CardHeader>
+                            <CardTitle className='text-center h4  text-primary' >{doc.Name}</CardTitle>
+                            </CardHeader>
+                            <CardBody className=''>
+                            <CardText className=' d-inline-block h5 text-primary' ><Link className='nav-link text-success ' to={`/take-test?Email=${Email}&ID=${ID}&lvl=${1}&Topic=${doc.id}&Test=1`}> Take Test</Link></CardText>
                                     { lvl?.status ?  
-                                <CardTitle className='h5 text-success text-center' ><Link className='nav-link text-success ' to={`/add-mcqs?Email=${Email}&ID=${ID}&lvl=${1}&Topic=${doc.id}`}> + Add Mcqs</Link></CardTitle>
+                                <CardText className='d-inline-block h5 float-right text-success ' ><Link className='nav-link text-secondary ' to={`/add-mcqs?Email=${Email}&ID=${ID}&lvl=${1}&Topic=${doc.id}`}> Add Mcqs</Link></CardText>
                                 :
                                 <></>    
                                 }
+                            </CardBody>
+                               
                                     
-                                </CardFooter>
                         </Card>
                     </Col>
                 )
