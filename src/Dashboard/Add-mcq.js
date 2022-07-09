@@ -17,16 +17,19 @@ function Addmcq() {
     const [Option2, setOption2] = useState("");
     const [Option3, setOption3] = useState("");
     const [Option4, setOption4] = useState("");
+    const [correctOption, setcorrectOption] = useState("");
     const [message, setMessage] = useState({ state: false, msg: "" });
+    const [spinner, setSpinner] = useState({ state: false });
 
     const Topic = query.get("Topic");
 
     const AddMCQS = async (e) => {
         e.preventDefault();
-
+        setSpinner({ state: true });
         if( mcq === "" || Option1 === "" || Option2 === "" || Option3 === "" || Option4 === ""  || mcqtag === "")
         {
             setMessage({ state: true, msg: "All Fields are Manadatory!!" });
+            setSpinner({ state: false });
             return;
         }
         else{
@@ -38,13 +41,16 @@ function Addmcq() {
                     Option2,
                     Option3,
                     Option4,
+                    correctOption,
                 };
 
                 await Mcqs.addmcq(mcqtag, Topic, newMcq);
                 setMessage({ state: false, msg: "Mcq Added Successfully!!" });
+                setSpinner({ state: false });
             }
             catch (err){
                 setMessage({ state: true, msg: err.message });
+                setSpinner({ state: false });
             }
 
             setMcqTag("");
@@ -86,7 +92,7 @@ function Addmcq() {
                         <Input type='textarea' className='input' value={ mcq } onChange={ (e) => { setMcq(e.target.value) } }></Input> 
                     </Col>
                 </Row>
-                <Row className='mb-5'>
+                <Row className='mb-2'>
                     <Col sm={6}>
                         <Label>Option1</Label>
                         <Input type='text' className='input' value={ Option1 } onChange={ (e) => { setOption1(e.target.value) } }></Input>
@@ -106,11 +112,26 @@ function Addmcq() {
                 </Row>
                 <Row className='mb-5'>
                     <Col>
+                        <Label> Correct Option</Label>
+                        <Input type='text' className='input' value={ correctOption } onChange={ (e) => { setcorrectOption(e.target.value) } }></Input>
+                    </Col>
+                </Row>
+                <Row className='mb-5'>
+                    <Col>
                         <center>
                             <button className='btn btn-primary w-50'> Save </button>
                         </center>
                     </Col>
                 </Row>
+
+                <Row>
+                    <Col>
+                        <center>
+                            {spinner?.state ? <div className="spinner-grow text-success m-5 " role="status"></div> : <></>}
+                        </center>
+                    </Col>
+                </Row>
+
             </Form>
 
         </Container>
