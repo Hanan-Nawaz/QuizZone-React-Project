@@ -46,6 +46,13 @@ function Addmcq() {
             catch (err){
                 setMessage({ state: true, msg: err.message });
             }
+
+            setMcqTag("");
+            setMcq("");
+            setOption1("");
+            setOption2("");
+            setOption3("");
+            setOption4("");
         }
     }
 
