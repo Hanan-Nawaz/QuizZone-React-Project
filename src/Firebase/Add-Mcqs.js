@@ -1,5 +1,5 @@
 import { db } from './Firebase-Services'
-import { collection, doc, setDoc, getDocs } from  'firebase/firestore'
+import { collection, doc, setDoc, getDocs, getDoc } from  'firebase/firestore'
 
 class Mcqs  {
     addmcq (mcqtag, Topic, newMcq) {
@@ -8,6 +8,9 @@ class Mcqs  {
     getmcqs (Topic) {
         const collectionref = collection(db, `${Topic}`);
         return getDocs(collectionref);
+    }
+    getmcq (Topic, Id) {
+        return getDoc(doc(db, `${Topic}`, Id));
     }
 }
 
