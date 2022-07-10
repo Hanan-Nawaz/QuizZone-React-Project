@@ -21,6 +21,11 @@ function TakeTest() {
     const [score, setScore] = useState(0);
     const [Answer, setAnswer] = useState("");
     const [Id, setId] = useState("");
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    const TestDate =  `${date}-${month}-${year}`; 
 
     const url = `?Email=${Email}&ID=${ID}&lvl=${LVL}&Topic=${Topic}`;
 
@@ -94,12 +99,6 @@ function TakeTest() {
             if(question === index){
             return(
                 <div className='container' key={doc.id}>
-                    
-                    <Row>
-                        <Col>
-                        
-                        </Col>
-                    </Row>
                 <Row>
                     <Col sm={9}>
                         <Label className='text-primary h6 ' > Question:{index+1}</Label>
@@ -166,6 +165,7 @@ function TakeTest() {
                 Topic,
                 score,
                 question,
+                TestDate,
             }
 
              Results.addResult(Email, Topic, newResult);
