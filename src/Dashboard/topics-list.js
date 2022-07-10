@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { Card, Container, Row, Col, CardImg, CardTitle, CardBody, CardText, CardHeader } from 'reactstrap'
+import { Card, Container, CardImg, CardTitle, CardBody, CardText } from 'reactstrap'
 import Topics from '../Firebase/Topics'
 
 function useQuery() {
@@ -38,18 +38,23 @@ function Topicslist() {
 
   return (
     <Container>
-        <Row className='mb-5'>
-            
-               {data.map((doc) => {
-                return(
-                    <Col>
-                        <Card key={doc.id}>
-                            <Link to={`/quiz?Email=${Email}&ID=${ID}&Topic=${doc.id}`}>
-                                <CardImg src={doc.Image} className='img' height='170px' width='120px' ></CardImg>
-                            </Link>
-                            <CardHeader>
+        <div className="row">
+
+<div className="col-12">
+    <h3 className="text-center text-dark mt-1 mb-2"><i className='fa fa-list'></i> Topic List</h3>
+</div>
+</div>
+            <div className="row mb-5">
+
+{data.map((doc) => {
+
+    return (
+
+        <div key={doc.id} className="col-12 col-md-4 p-1">
+
+            <Card className='border border-primary'>
+                    <CardImg width="300px" src={doc.Image} height='300px' alt={doc.Name} />
                             <CardTitle className='text-center h4  text-primary' >{doc.Name}</CardTitle>
-                            </CardHeader>
                             <CardBody className=''>
                             <CardText className=' d-inline-block h5 text-primary' ><Link className='nav-link text-success ' to={`/take-test?Email=${Email}&ID=${ID}&lvl=${1}&Topic=${doc.id}&Test=1`}> Take Test</Link></CardText>
                                     { lvl?.status ?  
@@ -58,16 +63,13 @@ function Topicslist() {
                                 <></>    
                                 }
                             </CardBody>
-                               
-                                    
-                        </Card>
-                    </Col>
-                )
-               })
+            </Card>
+        </div>
 
-               }
-            
-        </Row>
+    )
+})}
+
+</div>
     </Container>
   )
 }
