@@ -159,7 +159,7 @@ function TakeTest() {
         
             )
         }
-        if(index === question)
+        else
         {
             const newResult = {
                 Email,
@@ -170,7 +170,6 @@ function TakeTest() {
 
              Results.addResult(Email, Topic, newResult);
                 return(
-
                 <>
              
                     <Row className='mb-5 mt-5'>
