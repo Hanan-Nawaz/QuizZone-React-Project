@@ -91,7 +91,7 @@ function TakeTest() {
         </Row>
 
         {data.map((doc,index) => {
-            if(question === index && doc.id !== ""){
+            if(question === index){
             return(
                 <div className='container' key={doc.id}>
                     
@@ -106,7 +106,7 @@ function TakeTest() {
                         <h4 className=''> {doc.mcq} </h4>
                     </Col>
                     <Col sm={3}>
-                    <Label className='text-success h6 float-right ml-2' id='docid'> {doc.id} </Label> <Label className='text-success h6 float-right' > Tag: </Label> 
+                    <Label className='text-success h6 float-right ml-2' id='docid' value={doc.id} onChange={(e) => setId(e.target.value)}> {doc.id} </Label> <Label className='text-success h6 float-right' > Tag: </Label> 
                     </Col>
                     
                 </Row>
@@ -159,7 +159,7 @@ function TakeTest() {
         
             )
         }
-        if(question > index)
+        if(index === question)
         {
             const newResult = {
                 Email,
@@ -172,7 +172,7 @@ function TakeTest() {
                 return(
 
                 <>
-             {question > index ? 
+             
                     <Row className='mb-5 mt-5'>
                         <Col>
                         <center>
@@ -180,9 +180,8 @@ function TakeTest() {
                         </center>
                         </Col>
                     </Row>
-                    :
-                    <></>
-            }
+                    
+            
             </>
 
             )
