@@ -160,3 +160,18 @@ body {
   }
 }
 
+.granted {
+  background-color: rgb(65, 5, 5);
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 75px;
+  text-align: center;
+  padding: 50px 0;
+  color: goldenrod;
+  font-weight: bolder;
+  transform: rotate(-45deg);
+  font-size: 30px;
+}
+
