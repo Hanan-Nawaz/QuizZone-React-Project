@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Results from '../Firebase/Results'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -65,7 +65,7 @@ return (
         <td className='text-center' >{doc.score}</td>
         <td className='text-center' >{doc.question}</td>
         <td>
-        {/* <button type='button' className='border-0 bg-transparent'><Link to={`/edit-user?Email=${doc.Email}&ID=${doc.ID}&lvl=${1}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button>  */}
+        <button type='button' className='border-0 bg-transparent'><Link to={`/edit-user?Email=${doc.Email}&ID=${doc.ID}&lvl=${1}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button> 
         </td>
     </tr>
 
