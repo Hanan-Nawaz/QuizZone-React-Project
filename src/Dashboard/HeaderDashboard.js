@@ -74,6 +74,15 @@ function HeaderDashboard( { Email, ID, LVL } ) {
         </Link>
 
         <Link
+          to={`/results${Url}`}
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+        >
+          <i class="fa fa-list-alt fa-fw me-3" ></i><span className='h6 ml-2'><b>  Results</b></span>
+        </Link>
+
+
+        <Link
           to="/main/signin"
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
