@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore"
+import { collection, doc, getDocs, setDoc, getDoc } from "firebase/firestore"
 import { db } from "./Firebase-Services"
 
 class Results {
@@ -8,6 +8,9 @@ class Results {
     getResults(Email){
         const collref = collection(db, `${Email}`);
         return getDocs(collref);
+    }
+    getResult(Email, Topic){
+        return getDoc(doc(db, `${Email}`, `${Topic}`));
     }
 }
 

@@ -19,8 +19,6 @@ function Result() {
     useEffect(() => {
         const getallresult = async () => {
 
-           
-
             const docSnap = await Results.getResults(Email);
             setData(docSnap.docs.map((doc) => (
                 {
@@ -50,7 +48,8 @@ function Result() {
                     <th className='text-center'>#</th>
                     <th className='text-center' >Topic</th>
                     <th className='text-center' >Obtained</th>
-                    <th className='text-center' >total</th>
+                    <th className='text-center' >Total</th>
+                    <th className='text-center' >Test Date</th>
                     <th></th>
                     </tr>
                 </thead>
@@ -64,8 +63,9 @@ return (
         <td className='text-center' >{doc.Topic}</td>
         <td className='text-center' >{doc.score}</td>
         <td className='text-center' >{doc.question}</td>
+        <td className='text-center' >{doc.TestDate}</td>
         <td>
-        <button type='button' className='border-0 bg-transparent'><Link to={`/view-result?Email=${Email}&ID=${ID}&lvl=${LVL}&RID=${doc.id}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button> 
+        <button type='button' className='border-0 bg-transparent'><Link to={`/view-certificate?Email=${Email}&ID=${ID}&lvl=${LVL}&RID=${doc.id}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button> 
         </td>
     </tr>
 

@@ -12,6 +12,7 @@ import Result from './Result'
 import getUsers from '../Firebase/SignIn'
 import Edituser from './edituser'
 import Deleteuser from './deleteuser'
+import Certificate from './Certificate'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -88,6 +89,7 @@ function MainDashboard() {
                             <Route path='/add-mcqs' element={<Addmcq/>  } ></Route>
                             <Route path='/take-test' element={<TakeTest/>  } ></Route>
                             <Route path='/results' element={<Result/>  } ></Route>
+                            <Route path='/view-certificate' element={<Certificate/>  } ></Route>
                             <Route path='/edit-user' element={ <Edituser />} ></Route>
                             <Route path='/delete-user' element={<Deleteuser />}  ></Route>
                             <Route path='/signin' element={<SignIn />}></Route>
