@@ -11,8 +11,8 @@ function Result() {
 
     let query = useQuery();
     const Email = query.get("Email");
-    // const ID = query.get("ID");
-    // const LVL = query.get("lvl");
+    const ID = query.get("ID");
+    const LVL = query.get("lvl");
 
     const [data, setData] = useState([]);
 
@@ -65,7 +65,7 @@ return (
         <td className='text-center' >{doc.score}</td>
         <td className='text-center' >{doc.question}</td>
         <td>
-        <button type='button' className='border-0 bg-transparent'><Link to={`/edit-user?Email=${doc.Email}&ID=${doc.ID}&lvl=${1}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button> 
+        <button type='button' className='border-0 bg-transparent'><Link to={`/view-result?Email=${Email}&ID=${ID}&lvl=${LVL}&RID=${doc.id}`} className='h5 text-primary' ><i className='fa fa-eye'></i> </Link></button> 
         </td>
     </tr>
 
