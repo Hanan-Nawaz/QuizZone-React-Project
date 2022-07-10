@@ -9,6 +9,7 @@
     "css-loader": "^6.7.1",
     "firebase": "^9.8.4",
     "font-awesome": "^4.7.0",
+    "jspdf": "^2.5.1",
     "loader-runner": "^4.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
