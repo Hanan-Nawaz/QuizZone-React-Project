@@ -16,6 +16,7 @@ function TakeTest() {
     // const LVL = query.get("lvl");
     const Topic = query.get("Topic");
     const [data, setData] = useState([]);
+    const [question, setQuestion] = useState(0);
 
     useEffect(() => {
         const getallMcqs = async () => {
@@ -39,6 +40,8 @@ function TakeTest() {
         </Row>
 
         {data.map((doc,index) => {
+            if(question === index){
+
             return(
                 <div className='container' key={doc.id}>
                     
@@ -82,10 +85,19 @@ function TakeTest() {
                     </div>
                     </Col>
                 </Row>
+
+                <Row className='mb-5 mt-5'>
+                    <Col>
+                    <center>
+                        <button className='btn btn-primary w-50'> Next </button>
+                    </center>
+                    </Col>
+                </Row>
             </div>
            
         
             )
+        }
         })}
     </Container>
   )
