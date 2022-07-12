@@ -15,7 +15,7 @@ function Price() {
         <Row className='mb-3 mt-2 p-2'>
             <Col sm={6}>
                 <center>
-                    <img  height='410px' src={Logo} alt='QuizZone'/>
+                    <img  height='310px' width='300px' src={Logo} alt='QuizZone'/>
                 </center>
             </Col>
             <Col sm={6}>

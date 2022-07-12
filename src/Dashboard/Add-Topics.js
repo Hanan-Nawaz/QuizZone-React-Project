@@ -12,7 +12,6 @@ function AddTopics() {
 
   const [isfile, setFile] = useState(null);
   const handleImageAsFile = (e) => {
-    document.getElementById('picname').innerText = isfile.name;
     setFile(e.target.files[0]);
   }
 
@@ -50,7 +49,7 @@ function AddTopics() {
     }
     console.log(Image);
 
-
+     const url = `https://firebasestorage.googleapis.com/v0/b/quizzone-limited.appspot.com/o/uploads%2F${isfile.name}?alt=media&token=fb1068ae-f025-4436-acc7-8ae93ac95d42`
 
     const newTopic = {
       Image: url,
