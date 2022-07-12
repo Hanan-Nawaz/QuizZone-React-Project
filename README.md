@@ -24,7 +24,8 @@ ii)   For Sigup/Registration, Least amount of information is Required.<br/>
 iii)  After SignIn, User Can Login.<br/>
 iv)   After Signin/Login, see Total Number of Users, Total Topics/Skills and No. of test he/she take.<br/>
 v)    After that, user can see Topics List and Click on **Take Test** Button to Take Test.<br/>
-vi)   After attempting test, user can see a alert with text see Results Or User can click of Results button in sidebar(on Big screens) or Navbar on Mobile Phones or         Small screen Devices.<br/>
+vi)   After attempting test, user can see a alert with text see Results Or User can click of Results button in sidebar(on Big screens) or Navbar on 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Phones or Small screen Devices.<br/>
 vii)  User Can see his/her test attempts in a table with an eye button to see Certificate.<br/>
 viii) User can see Certificate and Download it after Clicking on Download Button in the PDF format.<br/>
 <br/>
