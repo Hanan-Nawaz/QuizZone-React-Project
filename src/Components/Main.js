@@ -6,6 +6,7 @@ import Cards from './cards'
 import About from './About-us'
 import Signup from './Sign-up'
 import SignIn from './SignIn'
+import Price from './Price'
 import Error404 from '../ErrorPage/Error404'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
@@ -21,6 +22,7 @@ function Main() {
         <Route path='/about-us' element={<About />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/signin' element={<SignIn />}></Route>
+        <Route path='/price' element={<Price />}></Route>
         <Route path='*' element={<Error404 />}></Route>
       </Routes>
 

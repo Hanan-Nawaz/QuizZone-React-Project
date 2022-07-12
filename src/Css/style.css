@@ -175,3 +175,13 @@ body {
   font-size: 30px;
 }
 
+.card {
+  border-color: rgb(211, 209, 209);
+  border-radius: 2%;
+}
+
+.card:hover {
+  border-color: blue;
+  cursor: pointer;
+}
+
