@@ -43,12 +43,16 @@ vi)  Thats all for Admin.<br/>
 <br/>
 >> Teacher can become Admin.<br/>
 <br/>
+**Technology**
+React<br/>
+Bootstrap<br/>
+Firebase<br/>
 <br/>
 **Disclaimer**<br/>
 i)  Mobile App in this Document Means Apps for Android Operating System Only.<br/>
 ii) Any Individual/Organization want to Contact me in Regards of any issue will contact me through Email : **hanannawaz0@gmail.com** <br/>
 <br/>
-Live Link: https://www.quizzone-limited.web.app
+Live Link: https://quizzone-limited.web.app/
 <br/>
 Abdul Hanan Nawaz <br/>
 Software Engineering student at **NUML Islamabad**<br/>
