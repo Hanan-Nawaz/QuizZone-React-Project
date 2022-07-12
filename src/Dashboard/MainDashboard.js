@@ -13,6 +13,7 @@ import getUsers from '../Firebase/SignIn'
 import Edituser from './edituser'
 import Deleteuser from './deleteuser'
 import Certificate from './Certificate'
+import Dashboard from './Dashboard'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -81,8 +82,8 @@ function MainDashboard() {
                     <HeaderDashboard Email={Email} ID={ID} LVL={LVL} />
 
                     <div className='bodydashboard'>
-
                         <Routes>
+                            <Route path="/dashboard" element={<Dashboard />}></Route>
                             <Route path="/add-topics" element={<AddTopics />}></Route>
                             <Route path='/user-list' element={<Userlist/>  } ></Route>
                             <Route path='/topics-list' element={<Topicslist/>  } ></Route>
