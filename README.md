@@ -49,7 +49,7 @@ ii) Any Individual/Organization want to Contact me in Regards of any issue will 
 
 Live Link: https://www.quizzone-limited.web.app
 
-Abdul Hanan Nawaz
+Abdul Hanan Nawaz <br/>
 Software Engineering student at **NUML Islamabad**
 Freelancer @Upwork & @Fiverr
 Dream Companies FAANG or MAANG(After Facebook Rebranded) and Microsoft.
