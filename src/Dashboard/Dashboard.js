@@ -14,26 +14,20 @@ function Dashboard() {
     let query = useQuery();
     const Email = query.get("Email");
 
-    const [datauser, setDataUser] = useState([]);
-    const [dataTopic, setDataTopic] = useState([]);
-    const [dataResult, setDataResult] = useState([]);
+    const [datauser, setDataUser] = useState(0);
+    const [dataTopic, setDataTopic] = useState(0);
+    const [dataResult, setDataResult] = useState(0);
 
     useEffect(() => {
         const getusers = async () => {
             const DocSnapUser = await getUsers.getusers();
-            setDataUser(DocSnapUser.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
+            setDataUser(DocSnapUser.size);
 
             const DocSnapTopic = await Topics.getTopics();
-            setDataTopic(DocSnapTopic.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
+            setDataTopic(DocSnapTopic.size);
 
             const DocSnapResult = await Results.getResults(Email);
-            setDataResult(DocSnapResult.docs.map((doc) => ({
-                ...doc.data(), id: doc.id
-            })))
+            setDataResult(DocSnapResult.size);
         };
 
         getusers();
@@ -50,16 +44,8 @@ function Dashboard() {
                 <Col sm={5} className="bg-warning mt-2 rounded card">
                     <center>
                         <Label className='h3 text-center '> Total Users</Label>
-                    </center>
-                    {datauser.map((doc, index) => {
-                        return (
-                            <>
-                                <h1 className='text-center'>{index + 1}</h1>
-                                <h1 className='userdash'> {doc.Name}</h1>
-                            </>
-
-                        )
-                    })}
+                    </center>                   
+                     <h1 className='text-center'>{ datauser }</h1>
                 </Col>
                 <Col>
                 </Col>
@@ -67,15 +53,9 @@ function Dashboard() {
                     <center>
                         <Label className='h3 text-center '> Total Skills</Label>
                     </center>
-                    {dataTopic.map((doc, index) => {
-                        return (
-                            <>
-                                <h1 className='text-center'>{index + 1}</h1>
-                                <h1 className='userdash'> {doc.Name}</h1>
-                            </>
-
-                        )
-                    })}
+                    
+                                <h1 className='text-center'>{ dataTopic }</h1>
+                           
                 </Col>
             </Row>
             <Row className='mb-4 mt-2 ml-2 mr-2'>
@@ -83,15 +63,9 @@ function Dashboard() {
                     <center>
                         <Label className='h3 text-center '> Total Test You Give</Label>
                     </center>
-                    {dataResult.map((doc, index) => {
-                        return (
-                            <>
-                                <h1 className='text-center'>{index + 1}</h1>
-                                <h1 className='userdash'> {doc.score}</h1>
-                            </>
-
-                        )
-                    })}
+                   
+                                <h1 className='text-center'>{ dataResult }</h1>
+                           
                 </Col>
                 <Col>
                 </Col>

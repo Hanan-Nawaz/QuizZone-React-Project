@@ -15,7 +15,7 @@ function Footer() {
     <section class="mb-2">
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://facebook.com/hannan.goraya.9/"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-facebook"></i
@@ -23,7 +23,7 @@ function Footer() {
 
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://wwww.twitter.com/HananNawaz0"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-twitter"></i
@@ -31,7 +31,7 @@ function Footer() {
 
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="mailto:hanannawaz02gmail.com"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-google"></i
@@ -39,7 +39,7 @@ function Footer() {
 
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://www.instagram.com/hanan__nawaz/"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-instagram"></i
@@ -47,14 +47,14 @@ function Footer() {
 
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://www.linkedin.com/in/abdulhanan0/"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-linkedin"></i
       ></a>
       <a
         class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://github.com/Hanan-Nawaz/"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-github"></i
