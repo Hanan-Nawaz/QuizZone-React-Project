@@ -1,13 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap'
+import Logo from '../assets/quizzone.png'
+import { Container, Row, Col, Card, CardBody, CardTitle, CardText } from 'reactstrap'
 
 function Price() {
   return (
     <Container>
         <Row>
             <Col>
+                <h2 className=' text-center m-4'> About QuizZone </h2>
+                <p className=' text-center m-4'> One of the best Educational Organization Serving the World for Free. Our Services are Available for Every Human Being irrespective of their <b>Religion</b>, <b>Race</b> and <b>Color</b>.  <br/> <i className='h6 text-primary'> In the Quran, Allah (swt) says:<br/> “Help one another in acts of piety and righteousness. And do not assist each other in acts of sinfulness and transgression. And be aware of Allah. Verily, Allah is severe in punishment” (Quran 5:2).</i>   </p>
+            </Col>
+        </Row>
+        <Row className='mb-3 mt-2 p-2'>
+            <Col sm={6}>
+                <center>
+                    <img  height='410px' src={Logo} alt='QuizZone'/>
+                </center>
+            </Col>
+            <Col sm={6}>
+                <h3 className=' text-center mt-5 mb-5'> What is QuizZone? </h3>
+                <p className=' text-center mt-5 mb-5'> This is A React Project Developed by Abdul Hanan Nawaz. Students as well as IT professionals will use this platform to further enhance their skills, further polish their skills. They will be able to Pick a Language and give Test. Every Question will have to be marked within just 1 minute time span and at the end Mark sheet will be Given.</p>
+                <Link className=' btn mt-5 mb-4 float-right btn-primary rounded' to='/main/about-us'> Read More <b className='h5'>&raquo;</b>  </Link>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
                 <h2 className=' text-center m-4'> Pricing </h2>
+                <p className=' text-center m-4'> Quickly be able to Join a Company as a Software Engineer after our tests and awarded with certificates.<br/> <i> BEST OF LUCK</i>   </p>
             </Col>
         </Row>
         <Row className='mb-3'>
