@@ -36,7 +36,7 @@ function Result() {
     <Container>
         <Row>
             <Col>
-                <h4 className='text-primary text-center'>Results</h4>
+            <h3 className='text-center mt-2 mb-5'> <i className='fa fa-list-alt'></i> Result</h3>
             </Col>
         </Row>
 

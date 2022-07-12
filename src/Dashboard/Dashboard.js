@@ -22,28 +22,28 @@ function Dashboard() {
         const getusers = async () => {
             const DocSnapUser = await getUsers.getusers();
             setDataUser(DocSnapUser.docs.map((doc) => ({
-                ...doc.data() , id: doc.id
+                ...doc.data(), id: doc.id
             })))
 
             const DocSnapTopic = await Topics.getTopics();
             setDataTopic(DocSnapTopic.docs.map((doc) => ({
-                ...doc.data() , id: doc.id
+                ...doc.data(), id: doc.id
             })))
 
             const DocSnapResult = await Results.getResults(Email);
             setDataResult(DocSnapResult.docs.map((doc) => ({
-                ...doc.data() , id: doc.id
+                ...doc.data(), id: doc.id
             })))
         };
 
         getusers();
     })
 
-  return (
+    return (
         <Container>
             <Row>
                 <Col>
-                <h3 className='text-center mt-2 mb-5'> <i className='fa fa-dashboard'></i> Dashboard</h3>
+                    <h3 className='text-center mt-2 mb-5'> <i className='fa fa-dashboard'></i> Dashboard</h3>
                 </Col>
             </Row>
             <Row className='mb-2 mt-2 ml-2 mr-2'>
@@ -51,15 +51,15 @@ function Dashboard() {
                     <center>
                         <Label className='h3 text-center '> Total Users</Label>
                     </center>
-                {datauser.map((doc , index) => {
-                    return(
-                        <>
-                        <h1 className='text-center'>{ index + 1 }</h1>
-                        <h1 className='userdash'> { doc.Name }</h1>
-                        </>
-                        
-                    )
-                })}
+                    {datauser.map((doc, index) => {
+                        return (
+                            <>
+                                <h1 className='text-center'>{index + 1}</h1>
+                                <h1 className='userdash'> {doc.Name}</h1>
+                            </>
+
+                        )
+                    })}
                 </Col>
                 <Col>
                 </Col>
@@ -67,15 +67,15 @@ function Dashboard() {
                     <center>
                         <Label className='h3 text-center '> Total Skills</Label>
                     </center>
-                {dataTopic.map((doc , index) => {
-                    return(
-                        <>
-                        <h1 className='text-center'>{ index + 1 }</h1>
-                        <h1 className='userdash'> { doc.Name }</h1>
-                        </>
-                        
-                    )
-                })}
+                    {dataTopic.map((doc, index) => {
+                        return (
+                            <>
+                                <h1 className='text-center'>{index + 1}</h1>
+                                <h1 className='userdash'> {doc.Name}</h1>
+                            </>
+
+                        )
+                    })}
                 </Col>
             </Row>
             <Row className='mb-4 mt-2 ml-2 mr-2'>
@@ -83,15 +83,15 @@ function Dashboard() {
                     <center>
                         <Label className='h3 text-center '> Total Test You Give</Label>
                     </center>
-                {dataResult.map((doc , index) => {
-                    return(
-                        <>
-                        <h1 className='text-center'>{ index + 1 }</h1>
-                        <h1 className='userdash'> { doc.score }</h1>
-                        </>
-                        
-                    )
-                })}
+                    {dataResult.map((doc, index) => {
+                        return (
+                            <>
+                                <h1 className='text-center'>{index + 1}</h1>
+                                <h1 className='userdash'> {doc.score}</h1>
+                            </>
+
+                        )
+                    })}
                 </Col>
                 <Col>
                 </Col>
