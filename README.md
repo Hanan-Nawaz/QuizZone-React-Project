@@ -43,7 +43,7 @@ vi)  Thats all for Admin.<br/>
 <br/>
 >> Teacher can become Admin.<br/>
 <br/>
-**Technology**
+**Technology**<br/>
 React<br/>
 Bootstrap<br/>
 Firebase<br/>
